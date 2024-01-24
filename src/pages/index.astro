@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<body>
+
+		<header>
+			<h1>Header</h1>
+			<!-- will contain logo and login button -->
+		</header>
+
+		<main>
+			<script>
+				//needs url of websocket server
+				//wss is secure form of websockets, use that instead for realsies
+				const ws = new WebSocket("ws://localhost:8082");
+				//listening for connection to server
+				ws.addEventListener("open", ()=> {
+					console.log("We are connected");
+				});
+			</script>
+			<section class="timer-box">
+				<h1>Timer box</h1>
+				<div class="timer">
+
+				</div>
+			</section>
+
+			<section class="left">
+				<h1>Left</h1>
+				<div class="race-details">
+
+				</div>
+			</section>
+
+			<section class="middle">
+				<h1>Middle</h1>
+				<div class="animation-box">
+
+				</div>
+			</section>
+
+			<section class="bottom">
+				<div class="all results">
+					<!-- needs javascript to add new section for each new race result -->
+		
+				<div>
+			</section>
+			
+			<section class="right">
+				<h1>Right</h1>
+				<div class="race-results">
+
+				</div>
+			</section>
+
+			
+
+		</main>
+	
+	</body>
+
+</Layout>
+
+<style>
+	header{
+		width: 100%;
+		border: 2px solid #fefefe;
+		padding: 10% auto;
+	}
+	h1{
+		color: #fefefe;
+	}
+	.timer-box{
+		width: 100%;
+		margin: 10px auto;
+		border: 2px solid #fa8585;
+		padding: 10% auto;
+	}
+	.left{
+		position: absolute;
+		width: 20%;
+		height: 70%;
+		margin: 10px auto;
+		border: 2px solid #85fad7;
+		padding:10% auto;
+	}
+	.right{
+		position: absolute;
+		right: 0;
+		width: 20%;
+		height: 70%;
+		margin: 10px auto;
+		border: 2px solid #85fa85;
+		padding: 10% auto;
+	}
+	.middle{
+		position: absolute;
+		left: 50%;
+		width: 50%;
+		height: 80%;
+		margin: 10px auto;
+		border: 2px solid #faea85;
+		padding: 10% auto;
+	}
+
+	
+</style>
